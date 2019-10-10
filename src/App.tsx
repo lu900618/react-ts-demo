@@ -1,25 +1,23 @@
 import React from 'react';
+import { Router, Switch, Route } from 'react-router';
+import routeData from './router';
+import { createHashHistory } from 'history';
 import logo from './logo.svg';
 import './App.css';
 
+const history = createHashHistory();
+
 const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router history={history}>
+      hello react tsx
+      {/* <Switch>
+        {routeData.map(({ path, component, exact }: IRouterItem) => (
+          <Route key={path} path={path} component={component} exact={exact} />
+        ))}
+        <Route component={NotFound} />
+      </Switch> */}
+    </Router>
   );
 }
 
